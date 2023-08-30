@@ -1,0 +1,9 @@
+{% extends 'base-features.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- color css -->
+<link href="{% sass_src 'assets/scss/inner-page.scss' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+{% block content %}
+{% include 'features/breadcrumb-option/breadcrumb-background/components/breadcrumb.html' %}
+{% include 'features/breadcrumb-option/layout/breadcrumb-content.html' %}
+{% endblock content %}

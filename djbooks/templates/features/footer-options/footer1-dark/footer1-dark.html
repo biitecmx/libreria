@@ -1,0 +1,26 @@
+{% extends 'base-features.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- color css -->
+<link href="{% sass_src 'assets/scss/inner-page.scss' %}" rel="stylesheet" type="text/css">
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+<!--keyframe css-->
+<link href="{% static 'assets/css/keyframes.css' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+
+{% include 'features/footer-options/layout/footer-content.html' %}
+{% include 'features/footer-options/footer1-dark/components/footer.html' %}
+
+{% endblock content %}
+{% block scriptcontent %}
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!-- counter js-->
+<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/counters.js' %}"></script>
+<script src="{% static 'assets/js/footer_blog.js' %}"></script>
+{% endblock scriptcontent %}

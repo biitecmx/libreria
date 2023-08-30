@@ -1,0 +1,91 @@
+{% load static %} {% load sass_tags %}
+<div class="col-lg-6 col-sm-12 col-xs-12">
+    <div class="checkout-details">
+        <div class="order-box">
+            <div class="title-box">
+                <div>Productos <span>Total</span></div>
+            </div>
+            {% for order_item in order.items.all %}
+                <ul class="qty">
+                    <li>{{ order_item.item.title}} × {{ order_item.quantity }} <span>${{ order_item.get_items_final_price }}</span></li>
+                </ul>
+            {% endfor %}
+            <ul class="sub-total">
+                <li>Total <span class="count">${{ order.get_total }}</span></li>
+            </ul>
+            <ul class="sub-total">
+                <li>Envío
+                    <div class="shipping">
+                        <div class="shopping-option">
+                            <input id="dhl" name="shipping_option" value="dhl"  type="radio" placeholder="100" onchange="updateAmount()" required>
+                            <label for="dhl">DHL ($100)</label>
+                        </div>
+                        <div class="shopping-option">
+                            <input id="sepomex" name="shipping_option" value="sepomex"  type="radio" placeholder="70" onchange="updateAmount()" required>
+                            <label for="sepomex">SEPOMEX ($70)</label>
+                        </div>
+                        <div class="shopping-option">
+                            <input id="local-pickup" name="shipping_option" value="local-pickup" type="radio" placeholder="0" onchange="updateAmount()" required>
+                            <label for="local-pickup">Entrega directa</label>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="total">
+                <li>Total <span class="count" id="total_with_shipping">${{ order.get_total }}</span></li>
+            </ul>
+        </div>
+        <div class="payment-box">
+            <div class="upper-box">
+                <div class="payment-options">
+                    <ul>
+                        {% for value, name in form.fields.payment_option.choices %}
+                        <li>
+                            <div class="radio-option">
+                                <div class="custom-control custom-radio">
+                                    <input id="{{ name }}" name="payment_option" value="{{ value }}" type="radio" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="{{ name }}">{{ name }}</label>
+                                </div>
+                                <span id="show-{{ value }}" class="image" style="display:none"><img alt="" src="{% static 'assets/images/inner-page/'%}{{value}}.png"></span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div id="chkout_btn" class="text-end">
+              <button class="btn btn-default primary-btn radius-0" type="submit">Continuar al pago</button>
+            </div> 
+        </div>
+    </div>
+</div>
+{% block scriptcontent %}
+<!--add shipping js-->
+{{ order.get_total|json_script:"order-data" }}
+<script>
+    function updateAmount() {
+      const orderData = document.getElementById('order-data').textContent;
+      var textElement = document.getElementById('total_with_shipping');
+      var amount = document.querySelector('input[name="shipping_option"]:checked').placeholder;
+
+      var parsed = parseFloat(Number(orderData)) + Number(amount);
+      textElement.innerText = "$" + parsed.toFixed(2)
+    }
+</script>
+<!-- show-hide script js-->
+<script type="text/javascript"> 
+    window.onload = function() {
+        $('input[name=payment_option]').click(function() {
+            if (this.id == "Mercado Pago") {
+              $("#show-mercado_pago").show('slow');
+              $("#show-paypal").hide('slow');
+            } else if (this.id == "PayPal") {
+              $("#show-mercado_pago").hide('slow');
+              $("#show-paypal").show('slow');
+            } else {
+              $("#show-me").hide('slow');
+            }
+        });
+    }
+</script>
+{% endblock scriptcontent %}

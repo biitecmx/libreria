@@ -1,0 +1,89 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load sass_tags %} 
+{% block css %}
+<!--slick css-->
+<link
+  href="{% sass_src 'assets/scss/slick.scss' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% sass_src 'assets/scss/slick-theme.scss' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+{% endblock css %} 
+{% block content %}
+
+<!--breadcrumb section start -->
+<section class="breadcrumb-section-main inner-2 breadcrumb-section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="breadcrumb-contain">
+          <div>
+            <h2 class="breadcrumb-txt">{{ object.title }}</h2>
+          </div>
+          <div>
+            <ul>
+              <li><a href="#">Categorías</a></li>
+              <li>
+                <a href="/categoria/{{ object.get_category_slug }}"
+                  ><i class="fa fa-angle-double-right"></i>
+                  {{ object.get_category_name }}</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--breadcrumb section end -->
+
+<!-- section start -->
+{% include './details.html' %}
+<!-- Section ends -->
+
+<!-- product-tab starts -->
+{% include './tabs.html' %}
+
+<!-- product-tab ends -->
+
+<!-- product section start -->
+{% include './related-products.html' %} 
+
+<!-- product section end -->
+<!-- Quick-view modal popup start-->
+{% include './quick-view-modal.html' %}
+
+{% endblock content %}
+{% block scriptcontent %}
+<!--slick js-->
+<script src="{% static 'assets/js/slick.js' %}"></script>
+<!-- script js-->
+<script
+  src="{% static 'assets/js/product.js' %}"
+  type="text/javascript"
+></script>
+<!-- Get-modal-data script js-->
+<script type="text/javascript"> 
+  $(document).ready(function(){
+    $('.cart-info a').click(function(){
+        var title = $(this).attr('data-title');
+        var cover = $(this).attr('data-cover');
+        var price = $(this).attr('data-price');
+        var desc = $(this).attr('data-desc');
+        var url = $(this).attr('data-url');
+        console.log(url);
+        $('#title-text').text(title);
+        $('#img-url').attr("src", cover);
+        $('#price-text').text("$"+price);
+        $('#desc-text').text(desc);
+        $('#cart-url').attr("href", url);
+    });
+  });
+</script>
+{% endblock scriptcontent %}

@@ -1,0 +1,125 @@
+{% load static %} {% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Unice" name="description">
+    <meta content="Unice" name="keywords">
+    <meta content="Unice" name="author">
+    <title>Djbooks</title>
+
+    <!-- Fav icon -->
+    <link href="{% static 'assets/images/logo/favicon.ico' %}" rel="shortcut icon">
+
+    <!-- Font Family-->
+    <link href="https://fonts.googleapis.com/css?family=Capriola&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <!--bootstrap css-->
+    <link href="{% sass_src 'assets/scss/bootstrap.scss' %}" rel="stylesheet" type="text/css">
+
+    <!-- color css -->
+    <link href="{% sass_src 'assets/scss/color-1.scss' %}" rel="stylesheet" type="text/css">
+
+    <!--keyframe css-->
+    <link href="{% static 'assets/css/keyframes.css' %}" rel="stylesheet">
+
+    <!--owl carousel css-->
+    <link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+
+    <!-- Swiper's CSS -->
+    <link href="{% static 'assets/css/swiper.min.css' %}" rel="stylesheet">
+
+    <!-- AOS CSS -->
+    <link href="{% static 'assets/css/aos.css' %}" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="{% sass_src 'assets/scss/font-awesome.scss' %}" rel="stylesheet" type="text/css">
+    <link href="{% sass_src 'assets/scss/themify.scss' %}" rel="stylesheet" type="text/css">
+
+    <!--magnific popup css-->
+    <link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet">
+
+
+</head>
+
+<body data-offset="50" data-spy="scroll" data-bs-target=".navbar" class="">
+
+    <!--loader start-->
+
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!--loader end-->
+
+
+    {% include 'features/header-option/header-right-navigation/components/header.html' %}
+    {% include 'features/header-option/header-right-navigation/components/content.html' %}
+
+
+
+    <!-- header section Start-->
+
+
+
+    <!-- header section end-->
+
+
+    <!-- Tap on Top-->
+
+    <div class="tap-top">
+        <div><i class="fa fa-angle-double-up"></i></div>
+    </div>
+
+    <!-- Tap on Ends-->
+
+
+    <!-- latest jquery-->
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+
+    <!-- popper js-->
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+
+    <!-- Bootstrap js-->
+    <script src="{% static 'assets/js/bootstrap.js' %}"></script>
+    <!--  costamizer option -->
+    <!-- <script src="{% static 'assets/js/custamizer-option.js' %}"></script> -->
+
+    <!--magnific popup js-->
+    <script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+
+    <!--owl js-->
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+    <!-- Swiper JS -->
+    <script src="{% static 'assets/js/swiper.min.js' %}"></script>
+
+    <!-- AOS JS -->
+    <script src="{% static 'assets/js/aos.js' %}"></script>
+
+    <!-- AOS JS -->
+    <script src="{% static 'assets/js/vanilla-tilt.min.js' %}"></script>
+
+    <!-- script js-->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/aos-init.js' %}"></script>
+    <script src="{% static 'assets/js/script1.js' %}"></script>
+
+</body>
+
+</html>

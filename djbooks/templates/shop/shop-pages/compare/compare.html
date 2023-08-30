@@ -1,0 +1,35 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start -->
+<section class="breadcrumb-section-main inner-2 breadcrumb-section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-contain ">
+                    <div>
+                        <h2 class="breadcrumb-txt">shop with compare</h2>
+                    </div>
+                    <div>
+                        <ul>
+
+                            <li><a href="#">shop pages</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i>compare</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end -->
+
+<!-- section start -->
+{% include 'shop/shop-pages/compare/components/compare.html' %}
+
+<!-- Section ends -->
+{% endblock content %}
+{% block scriptcontent %}
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+{% endblock scriptcontent %}

@@ -1,0 +1,28 @@
+{% extends 'base-features.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- color css -->
+<link href="{% sass_src 'assets/scss/inner-page.scss' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+{% block content %}
+
+<!-- breadcrumb section start -->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">breadcrumbs</h2>
+                <ul class="breadcrumb justify-content-center">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">elements</a></li>
+                    <li>breadcrumbs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb section end -->
+
+{% include 'features/breadcrumb-option/breadcrumb/components/breadcrumb-1-2.html' %}
+{% include 'features/breadcrumb-option/breadcrumb/components/breadcrumb-3-4.html' %}
+{% include 'features/breadcrumb-option/breadcrumb/components/footer-copyright.html' %}
+{% endblock content %}

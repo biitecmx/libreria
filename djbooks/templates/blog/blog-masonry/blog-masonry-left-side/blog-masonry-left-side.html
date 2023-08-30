@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!--magnific popup css-->
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+<!--breadcrumb section start-->
+{% include 'layout/breadcrumb.html' %}
+
+<!--breadcrumb section start-->
+
+<!-- section start -->
+<section class="portfolio-section agency blog blog-sec blog-sidebar sider">
+    <div class="container">
+        <div class="row">
+            {% include 'blog/blog-masonry/blog-masonry-left-side/components/blog-main.html' %}
+            {% include 'blog/blog-masonry/blog-masonry-left-side/components/blog-side.html' %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
+{% block scriptcontent %}
+<!--magnific popup js-->
+<script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+<script src="{% static 'assets/js/isotope.min.js' %}"></script>
+<script src="{% static 'assets/js/portfolio.js' %}"></script>
+{% endblock scriptcontent %}

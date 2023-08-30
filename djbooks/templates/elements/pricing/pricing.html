@@ -1,0 +1,32 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">elements with pricing</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">elements</a></li>
+                    <li>pricing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'elements/pricing/components/pricing-1-2.html' %}
+{% include 'elements/pricing/components/pricing-3-4.html' %}
+{% include 'elements/pricing/components/pricing-5-6.html' %}
+{% endblock content %}
+{% block scriptcontent %}
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!-- SmartMenus jQuery plugin -->
+<script src="{% static 'assets/js/pricing.js' %}"></script>
+{% endblock scriptcontent %}

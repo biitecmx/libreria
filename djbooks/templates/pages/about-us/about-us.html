@@ -1,0 +1,48 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+<!--magnific popup css-->
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">About us</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">Pages</a></li>
+                    <li>About us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+<!-- about section Start-->
+{% include 'pages/about-us/components/about.html' %}
+<!-- about section end-->
+<!-- testimonial 2 start -->
+{% include 'pages/about-us/components/testimonials-2.html' %}
+<!-- testimonial 2 ends -->
+<!-- our teams start -->
+{% include 'pages/about-us/components/our-team.html' %}
+<!-- our teams ends -->
+<!-- satisfied customers start-->
+{% include 'pages/about-us/components/customers.html' %}
+<!-- satisfied customers ends-->
+<!--accordion1 section start-->
+{% include 'pages/about-us/components/accordion.html' %}
+<!--accordion1 section end-->
+{% endblock content %}
+{% block scriptcontent %}
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/testimonial.js' %}"></script>
+<!-- <script src="{% static 'assets/js/video-popup.js' %}"></script>  -->
+{% endblock scriptcontent %}

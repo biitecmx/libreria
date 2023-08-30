@@ -1,0 +1,45 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+
+<!--breadcrumb section start-->
+<section class="breadcrumb-section-main inner-3 agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">elements with countdown</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">elements</a></li>
+                    <li>countdown</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+
+
+{% include 'elements/countdown/components/countdown.html' %}
+{% endblock content %}
+{% block scriptcontent %}
+<!--typed js-->
+<script src="{% static 'assets/js/typed.min.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/typed.js' %}"></script>
+<script src="{% static 'assets/js/count-down.js' %}"></script>
+<script>
+    function collapSection() {
+        var x = document.getElementById("togglebtn");
+        if ((x.style.opacity === "0") && (x.style.visibility === "hidden")) {
+            x.style.opacity = "1";
+            x.style.visibility = "visible";
+        } else {
+            x.style.opacity = "0";
+            x.style.visibility = "hidden";
+        }
+    }
+</script>
+{% endblock scriptcontent %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- magnific popup css -->
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet" type="text/css">
+
+{% endblock css %}
+{% block content %}
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">elements with gallery</h2>
+                <ul class="breadcrumb justify-content-center">
+                    <li><a href="#">elements</a></li>
+                    <li>gallery</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+
+<!-- gallery section start -->
+{% include 'elements/gallery/components/gallery.html' %}
+{% endblock content %}
+{% block scriptcontent %}
+<!--magnific popup js-->
+<script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+<script src="{% static 'assets/js/isotope.min.js' %}"></script>
+<script src="{% static 'assets/js/portfolio.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/zoom-gallery.js' %}"></script>
+
+{% endblock scriptcontent %}

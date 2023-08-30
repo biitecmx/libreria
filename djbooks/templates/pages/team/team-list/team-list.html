@@ -1,0 +1,31 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">pages with team-list</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">pages</a></li>
+                    <li><a href="#">team</a></li>
+                    <li>team-list</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+
+<section class="event team-sec team-grid speaker set-relative" id="speaker">
+    <div class="container">
+        <div class="row">
+            {% include 'pages/team/team-list/components/team-top.html' %}
+            {% include 'pages/team/team-list/components/team-bottom.html' %}
+
+        </div>
+    </div>
+</section>
+{% endblock content %}

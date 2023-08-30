@@ -1,0 +1,22 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start-->
+{% include 'layout/breadcrumb.html' %}
+
+<!--breadcrumb section end -->
+
+<!-- section start -->
+<section class="agency blog-sec blog-sidebar single_blog_item">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% include 'blog/blog-details/blog-detail-no-sidebar/components/blog-main.html' %}
+                {% include 'blog/blog-details/blog-detail-no-sidebar/components/blog-comments.html' %}
+                {% include 'blog/blog-details/blog-detail-no-sidebar/components/blog-form.html' %}
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

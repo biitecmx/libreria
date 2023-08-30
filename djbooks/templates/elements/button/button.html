@@ -1,0 +1,22 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container margin-buttons">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">elements with buttons</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">elements</a></li>
+                    <li>buttons</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+{% include 'elements/button/components/buttons-1.html' %}
+{% include 'elements/button/components/buttons-2.html' %}
+{% endblock content %}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %} 
+
+{% load i18n %}
+{% block head_title %}{% trans "Signup" %}{% endblock %} 
+
+{% block content %}
+
+<section class="register-page section-b-space">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Crear cuenta</h3>
+        <div class="theme-card">
+          <form
+            class="theme-form"
+            class="signup"
+            id="signup_form"
+            method="post"
+            action="{% url 'account_signup' %}"
+          >
+            {% csrf_token %}
+            <div class="row g-md-3 g-0">
+              <div class="col-md-6">
+                <label for="id_username">Username:</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  autocomplete="username"
+                  minlength="1"
+                  maxlength="150"
+                  required=""
+                  id="id_username"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="id_email">E-mail (optional):</label>
+                <input
+                  class="form-control"
+                  type="email"
+                  name="email"
+                  placeholder="E-mail address"
+                  autocomplete="email"
+                  id="id_email"
+                />
+              </div>
+            </div>
+            <div class="row g-md-3 g-0">
+              <div class="col-md-6">
+                <label for="id_password1">Password:</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  name="password1"
+                  placeholder="Enter your password"
+                  autocomplete="new-password"
+                  required=""
+                  id="id_password1"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="id_password2">Password (again):</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  name="password2"
+                  placeholder="Password (again)"
+                  autocomplete="new-password"
+                  required=""
+                  id="id_password2"
+                />
+              </div>
+              <p style="margin-left: 10px;">
+                {% blocktrans %}¿Ya tienes una cuenta? Porfavor 
+                <a href="{{ login_url }}">inicia sesion</a>.{% endblocktrans %}
+              </p>
+              <button
+                class="btn btn-default primary-btn radius-0 auto"
+                type="submit"
+              >
+                Crear Cuenta
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

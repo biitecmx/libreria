@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!--magnific popup css-->
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">elements with subscribe</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">elements</a></li>
+                    <li>subscribe</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+{% include 'elements/subscribe/components/subscribe-1.html' %}
+{% include 'elements/subscribe/components/subscribe-2.html' %}
+{% include 'elements/subscribe/components/subscribe-3.html' %}
+{% endblock content %}

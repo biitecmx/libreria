@@ -1,0 +1,91 @@
+{% load static %} {% load sass_tags %}
+<section class="typography_section">
+    <div class="container">
+        <div class="col-lg-6">
+            <div class="typography-box">
+                <div class="headings">
+                    <h3>lists</h3>
+                    <span>Styling for common inline HTML5 elements.</span>
+                </div>
+                <div class="typo-content lists">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h6 class="sub-title">Unorder list</h6>
+                            <ul>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="sub-title">order list</h6>
+                            <ol>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                            </ol>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="sub-title">order list</h6>
+                            <dl class="m-0">
+                                <dt>Lorem ipsum dolor sit amet</dt>
+                                <dd>- ipsum dolor sit amet</dd>
+                                <dt>Lorem ipsum dolor sit amet</dt>
+                                <dd>- ipsum dolor sit amet</dd>
+                                <dt>Lorem ipsum dolor sit amet</dt>
+                                <dd>- ipsum dolor sit amet</dd>
+                            </dl>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="sub-title">order list</h6>
+                            <ul class="m-0">
+                                <li><i class="fa fa-angle-double-right me-2"></i>Lorem ipsum dolor sit amet</li>
+                                <li><i class="fa fa-angle-double-right me-2"></i>Lorem ipsum dolor sit amet</li>
+                                <li><i class="fa fa-angle-double-right me-2"></i>Lorem ipsum dolor sit amet</li>
+                                <li><i class="fa fa-angle-double-right me-2"></i>Lorem ipsum dolor sit amet</li>
+                                <li><i class="fa fa-angle-double-right me-2"></i>Lorem ipsum dolor sit amet</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="typography-box">
+                <div class="headings">
+                    <h3 style="text-transform: none;">{{ order }}</h3>
+                    <span>Styling for common inline HTML5 elements.</span>
+                </div>
+                <div class="typo-content lists">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h6 class="sub-title">order list</h6>
+                            <ul class="m-0">
+                            {% for order_item in order.items.all %}
+                                <li><i class="fa fa-angle-double-right me-2"></i>{{ order_item.item.title}} × {{ order_item.quantity }}</li>  
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="typography-box">
+                <div class="headings">
+                    <h3>buttons</h3>
+                    <span>Styling for common inline HTML5 elements.</span>
+                </div>
+                <div class="typo-content typo-buttons">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div id="wallet_container"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

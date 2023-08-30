@@ -1,0 +1,59 @@
+{% load static %} {% load sass_tags %}
+{% for book in category_books %}
+  <div class="col-lg-2 col-sm-6 col-grid-box six">
+    <div class="product-box">
+      <div class="img-wrapper">
+        <div class="front">
+          <a href="{{ book.get_absolute_url }}"
+            ><img
+              alt=""
+              class="img-fluid"
+              src="{{ book.cover_url|default_if_none:'#' }}"
+          /></a>
+        </div>
+        {% if book.back %}
+        <div class="back">
+          <a href="{{ book.get_absolute_url }}"
+            ><img
+              alt=""
+              class="img-fluid"
+              src="{{ book.back_url|default_if_none:'#' }}"
+          /></a>
+        </div>
+        {% endif %}
+        <div class="cart-info cart-wrap">
+          <a href="{% url 'djbooks:add-to-cart' book.slug %}" title="Agregar al carrito"
+            ><i aria-hidden="true" class="fa fa-shopping-cart"></i>
+          </a>
+          <a href="{% url 'djbooks:add-to-wishlist' book.slug %}" title="Agregar a la wishlist"
+            ><i aria-hidden="true" class="fa fa-heart-o"></i
+          ></a>
+          <a
+            data-bs-target="#quick-view"
+            data-bs-toggle="modal"
+            data-title="{{ book.title }}"
+            data-cover="{{ book.cover_url|default_if_none:'#' }}"
+            data-price="{{ book.get_price }}"
+            data-desc="{{ book.description }}"
+            data-url="{{ book.get_add_to_cart_url }}"
+            href="#"
+            title="Quick View"
+            ><i aria-hidden="true" class="fa fa-search"></i
+          ></a>
+        </div>
+      </div>
+      <div class="product-detail">
+        <!-- <div class="rating">
+          <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div> -->
+        <a  href="{{ book.get_absolute_url }}">
+          <h6>{{ book.title }}</h6>
+        </a>
+        <p>{{ book.description }}</p>
+        <h4 style="text-transform: none;">${{ book.get_price }} mxn</h4>
+      </div>
+    </div>
+  </div>
+{% endfor %}

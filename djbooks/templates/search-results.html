@@ -1,0 +1,33 @@
+{% load static %} {% load sass_tags %}
+<div class="col-xl-4 col-md-6">
+  <div class="blog-agency">
+    <a href="{{ book.get_absolute_url }}">
+      <div class="blog-contain">
+        <img alt="" class="img-fluid" src="{{ book.cover_url|default_if_none:'#' }}" />
+        <div class="img-container center-content">
+          <div class="center-content">
+            <div class="blog-info">
+              <div class="m-b-20">
+                <div class="center-text">
+                  <i aria-hidden="true" class="fa fa-clock-o m-r-10"></i>
+                  <h6 class="m-r-25 font-blog">{{ book.year }}</h6>
+                  <i aria-hidden="true" class="fa fa-dollar m-r-10"></i>
+                  <h6 class="m-r-25 font-blog">{{ book.price }}</h6>
+                  <i aria-hidden="true" class="fa fa-user-o m-r-10"></i>
+                  <h6 class="font-blog">{{ book.author }}</h6>
+                </div>
+              </div>
+              <h5 class="blog-head font-600">{{ book.title }}</h5>
+              <p class="para2">{{ book.description }}</p>
+              <div class="btn-bottom m-t-20">
+                <a class="text-uppercase" href="{{ book.get_absolute_url }}"
+                  >Comprar</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

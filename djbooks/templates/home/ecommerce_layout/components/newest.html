@@ -1,0 +1,66 @@
+{% load static %} {% load sass_tags %}
+<section class="ecommerce feature-product">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-2 col-md-8">
+        <div class="title title2">
+          <div class="sub-title">
+            <div>
+              <h2 class="title-text">Productos Nuevos</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="product-slider owl-carousel owl-theme">
+          {% for book in new_books %}
+          <div class="item">
+            <div class="product-box">
+              <a class="badge badge-dark" href="{{ book.get_absolute_url }}"
+                >Nuevo</a
+              >
+              <div class="img-wrapper">
+                <div class="front">
+                  <a href="{{ book.get_absolute_url }}"
+                    ><img alt="" class="img-fluid" src="{{ book.cover_url|default_if_none:'#' }}"
+                  /></a>
+                </div>
+                <div class="back">
+                  <a href="{{ book.get_absolute_url }}"
+                    ><img alt="" class="img-fluid" src="{{ book.back_url|default_if_none:'#' }}"
+                  /></a>
+                </div>
+                <div class="cart-info cart-wrap">
+                  <a
+                    href="{% url 'djbooks:add-to-cart' book.slug %}"
+                    title="Agregar al carrito"
+                    ><i aria-hidden="true" class="fa fa-shopping-cart"></i>
+                  </a>
+                  <a 
+                    href="{% url 'djbooks:add-to-wishlist' book.slug %}" 
+                    title="Agregar a la wishlist"
+                    ><i aria-hidden="true" class="fa fa-heart-o"></i
+                  ></a>
+                  <a
+                    data-bs-target="#quick-view"
+                    data-bs-toggle="modal"
+                    href="#"
+                    title="Quick View"
+                    ><i aria-hidden="true" class="fa fa-search"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="product-detail">
+                <a href="/shop_product_no_sidebar">
+                  <h6>{{ book.title }}</h6>
+                </a>
+                <h4>${{ book.get_price }}</h4>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

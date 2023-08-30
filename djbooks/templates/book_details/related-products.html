@@ -1,0 +1,71 @@
+{% load static %}
+{% load sass_tags %}
+<section class="p-t-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 product-related">
+        <h2 class="m-b-20 m-t-20">Libros relacionados</h2>
+      </div>
+    </div>
+    <div class="row search-product">
+      {% for related_book in object.get_related_books %}
+      <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="product-box">
+          <div class="img-wrapper">
+            <div class="front">
+              <a href="{{ related_book.get_absolute_url }}"
+                ><img alt="" class="img-fluid" src="{{ related_book.cover_url|default_if_none:'#' }}"
+              /></a>
+            </div>
+            {% if object.back %}
+            <div class="back">
+              <a href="{{ related_book.get_absolute_url }}"
+                ><img alt="" class="img-fluid" src="{{ related_book.back_url|default_if_none:'#' }}"
+              /></a>
+            </div>
+            {% endif %}
+            <div class="cart-info cart-wrap">
+              <a href="{% url 'djbooks:add-to-cart' related_book.slug %}"
+                ><button
+                  data-bs-target="#addtocart"
+                  data-bs-toggle="modal"
+                  title="Agregar al carrito"
+                >
+                  <i class="fa fa-shopping-cart"></i></button
+              ></a>
+              <a
+                href="{% url 'djbooks:add-to-wishlist' related_book.slug %}"
+                title="Agregar a la wishlist"
+              >
+                <i aria-hidden="true" class="fa fa-heart-o"></i>
+              </a>
+              <a
+                data-bs-target="#quick-view"
+                data-bs-toggle="modal"
+                data-title="{{ related_book.title }}"
+                data-cover="{{ related_book.cover_url|default_if_none:'#' }}"
+                data-price="{{ related_book.get_price }}"
+                data-desc="{{ related_book.description }}"
+                data-url="{{ related_book.get_add_to_cart_url }}"
+                href="#"
+                title="Quick View"
+                ><i aria-hidden="true" class="fa fa-search"></i
+              ></a>
+
+              <a href="/shop_pages_compare" title="Compare"
+                ><i aria-hidden="true" class="ti-reload"></i>
+              </a>
+            </div>
+          </div>
+          <div class="product-detail">
+            <a href="{{ related_book.get_absolute_url }}">
+              <h6>{{ related_book.title }}</h6>
+            </a>
+            <h4>${{ related_book.get_price }}</h4>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

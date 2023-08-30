@@ -1,0 +1,25 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">pages with faqs</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">pages</a></li>
+                    <li>faqs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+
+<!-- faq section -->
+{% include 'pages/faq/components/faq.html' %}
+<!-- end faq section -->
+
+{% endblock content %}

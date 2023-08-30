@@ -1,0 +1,28 @@
+{% extends 'base-features.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- color css -->
+<link href="{% sass_src 'assets/scss/color-5.scss' %}" rel="stylesheet" type="text/css">
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+
+<!-- header Start-->
+{% include 'features/header-option/header-dark/components/content.html' %}
+
+<!-- header end-->
+
+{% endblock content %}
+{% block scriptcontent %}
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+<!-- script js-->
+<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+
+<!-- script js-->
+<script src="{% static 'assets/js/script5.js' %}"></script>
+
+{% endblock scriptcontent %}

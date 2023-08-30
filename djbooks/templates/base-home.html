@@ -1,0 +1,96 @@
+{% load static %} {% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Unice" name="description">
+    <meta content="Unice" name="keywords">
+    <meta content="Unice" name="author">
+    <title>Librería de Cuarto</title>
+
+    <!-- Fav icon -->
+    <link href="{% static 'assets/images/logo/favicon.ico' %}" rel="shortcut icon">
+    <!--bootstrap css-->
+    <link href="{% sass_src 'assets/scss/bootstrap.scss' %}" rel="stylesheet" type="text/css">
+
+    <link href="{% sass_src 'assets/scss/font-awesome.scss' %}" rel="stylesheet" type="text/css">
+    <link href="{% sass_src 'assets/scss/themify.scss' %}" rel="stylesheet" type="text/css">
+
+    {% block css %}{% endblock css %}
+
+    <!-- flat Icons -->
+    <link href="{% sass_src 'assets/scss/flaticon.scss' %}" rel="stylesheet" type="text/css">
+
+    <!-- Logo resizing-->
+    <style>
+        .img-logo {
+            max-width: 30%;
+            height: auto !important; /* Overriding the height of media querys */
+        }
+    </style>
+
+    <!-- Safari dropdown-->
+    <link href="{% static 'assets/css/safari-dropdown.css' %}" rel="stylesheet">
+
+</head>
+
+<body data-offset="50" data-spy="scroll" data-bs-target=".navbar" class={{body_classes}}>
+    <!--loader start-->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--loader end-->
+
+    <!-- Nav Start-->
+    {% include 'layout/header-home.html' %}
+    <!-- Nav end-->
+
+    <!--header start-->
+    {% block content %}{% endblock content %}
+    <!-- Tap on Top-->
+    <div class="tap-top">
+        <div><i class="fa fa-angle-double-up"></i></div>
+    </div>
+    <!-- Tap on Ends-->
+
+    <!-- latest jquery-->
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+
+    <!-- popper js-->
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+
+    <!-- Bootstrap js-->
+    <script src="{% static 'assets/js/bootstrap.js' %}"></script>
+
+    <!--  costamizer option -->
+    <!-- <script src="{% static 'assets/js/custamizer-option.js' %}"></script> -->
+
+    {% block scriptcontent %}{% endblock scriptcontent %}
+    <!-- common js-->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <!-- Safari-dropdown script js-->
+    <script type="text/javascript">
+        window.onload = function () {
+          const UA = navigator.userAgent;
+          if (UA.indexOf("Safari") != -1 && UA.indexOf("Chrome") == -1) {
+            $("#drp-dwn").hide();
+            $("#drp-dwn-safari").show();
+          }
+        };
+      </script>
+</body>
+
+</html>

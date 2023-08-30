@@ -1,0 +1,47 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<link href="{% static 'assets/css/keyframes.css' %}" rel="stylesheet" type="text/css">
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+<!-- Icons -->
+<link href="{% sass_src 'assets/scss/themify.scss' %}" rel="stylesheet" type="text/css">
+<!--magnific popup css-->
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">pages with team</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">pages</a></li>
+                    <li><a href="#">team</a></li>
+                    <li>team</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+{% include 'pages/team/team/components/team-1.html' %}
+{% include 'pages/team/team/components/team-2.html' %}
+{% include 'pages/team/team/components/team-3.html' %}
+{% include 'pages/team/team/components/team-4.html' %}
+
+{% endblock content %}
+{% block scriptcontent %}
+<!--magnific popup js-->
+<script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+<script src="{% static 'assets/js/isotope.min.js' %}"></script>
+<script src="{% static 'assets/js/portfolio.js' %}"></script>
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/script4.js' %}"></script>
+<script src="{% static 'assets/js/script6.js' %}"></script>
+{% endblock scriptcontent %}

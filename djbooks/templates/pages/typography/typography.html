@@ -1,0 +1,31 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">pages with typography</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">pages</a></li>
+                    <li>typography</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+
+<section class="typography_section">
+    <div class="container">
+        <div class="row">
+            {% include 'pages/typography/components/typography-left.html' %}
+            {% include 'pages/typography/components/typography-right.html' %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start -->
+<section class="breadcrumb-section-main inner-2 breadcrumb-section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-contain ">
+                    <div>
+                        <h2 class="breadcrumb-txt">Pago con Mercado Pago</h2>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end -->
+
+<!-- table of items -->
+<section class="typography_section">
+    <div class="container">
+        <div class="col-lg-6">
+            <div class="typography-box">
+                <div class="headings">
+                    <h3 style="text-transform: none;">{{ order }}</h3>
+                    <span>Styling for common inline HTML5 elements.</span>
+                </div>
+                <div class="typo-content lists">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h6 class="sub-title">Lista de libros</h6>
+                            <ul class="m-0">
+                            {% for order_item in order.items.all %}
+                                <li><i class="fa fa-angle-double-right me-2"></i>{{ order_item.item.title}} × {{ order_item.quantity }}</li>  
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="typography-box">
+                <div class="headings">
+                    <h3>buttons</h3>
+                    <span>Styling for common inline HTML5 elements.</span>
+                </div>
+                <div class="typo-content typo-buttons">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div id="wallet_container"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section ends -->
+{% endblock content %}
+
+{% block scriptcontent %}
+<!-- SDK MercadoPago js-->
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+{{ order.get_preference|json_script:"order-preference" }}
+<script>
+    const mp = new MercadoPago('TEST-4f03e76d-c370-4b14-af25-19bb6d3c2088', {
+         locale: 'es-MX'
+     })
+    const bricksBuilder = mp.bricks();
+    const preference_id = document.getElementById('order-preference').textContent;
+    console.log("PREF:");
+    console.log(preference_id); 
+    mp.bricks().create("wallet", "wallet_container", {
+    initialization: {
+       preferenceId: document.getElementById('order-preference').textContent,
+       redirectMode: "blank"
+   },
+});
+</script>
+{% endblock scriptcontent %}

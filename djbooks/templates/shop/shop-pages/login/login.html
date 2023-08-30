@@ -1,0 +1,32 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start -->
+<section class="breadcrumb-section-main inner-2 breadcrumb-section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-contain ">
+                    <div>
+                        <h2 class="breadcrumb-txt">shop with login</h2>
+                    </div>
+                    <div>
+                        <ul>
+
+                            <li><a href="#">shop pages</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i>login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end -->
+
+<!-- faq section -->
+{% include 'shop/shop-pages/login/components/login.html' %}
+
+<!-- end faq section -->
+
+{% endblock content %}

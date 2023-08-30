@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sass_tags %}
+{% load template_tags %} 
+{% block content%}
+
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 style="color: whitesmoke" class="breadcrumb-text text-center">
+          Nuestro acervo
+        </h2>
+        <ul class="breadcrumb justify-content-center">
+          <li><a href="#" style="color: whitesmoke">Libros</a></li>
+          <li style="color: whitesmoke">Catálogo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!--breadcrumb section end-->
+
+<!-- section start -->
+<section class="collection">
+  <div class="container">
+    <div class="row partition-collection">
+      {%for category, count in data.items %}
+        <div class="col-lg-3 col-sm-6">
+          <div class="collection-block">
+            <img alt="" class="img-fluid" src="{{ category.image.url }}" />
+            <div class="collection-content">
+              <h4>({{ count }} libro{{ count|pluralize }})</h4>
+              <h3>{{ category.name }}</h3>
+              <p>Descripción.</p>
+              <a
+                class="btn btn-default primary-btn radius-0 m-t-10"
+                href="/categoria/{{ category.slug }}"
+                >Ver</a
+              >
+            </div>
+          </div>
+        </div>
+      {% empty %}
+      <div class="row partition-collection">
+        <div class="collection-block">
+          <div class="collection-content">
+            <h3>No existen categorias creadas</h3>
+            <p>Para esta sección.</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- Section ends -->
+
+{% endblock content %}

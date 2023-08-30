@@ -1,0 +1,56 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+
+<!--breadcrumb section start -->
+<section class="breadcrumb-section-main inner-2 breadcrumb-section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-contain ">
+                    <div>
+                        <h2 class="breadcrumb-txt">shop with compare 2</h2>
+                    </div>
+                    <div>
+                        <ul>
+
+                            <li><a href="#">shop pages</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i>compare 2</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end -->
+
+<!-- section start -->
+<section class="compare-section section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-carousel owl-theme compare-slider">
+                    {% include 'shop/shop-pages/compare-2/components/item-1.html' %}
+                    {% include 'shop/shop-pages/compare-2/components/item-2.html' %}
+                    {% include 'shop/shop-pages/compare-2/components/item-3.html' %}
+                    {% include 'shop/shop-pages/compare-2/components/item-4.html' %}
+                    {% include 'shop/shop-pages/compare-2/components/item-5.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->
+
+{% endblock content %}
+{% block scriptcontent %}
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/portfolio-detail.js' %}"></script>
+{% endblock scriptcontent %}

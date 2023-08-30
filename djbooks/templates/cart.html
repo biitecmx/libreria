@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start -->
+<section class="breadcrumb-section-main inner-2 breadcrumb-section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="breadcrumb-contain">
+          <div>
+            <h2 class="breadcrumb-txt">Carrito de compras</h2>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--breadcrumb section end -->
+
+<!-- section start -->
+<section class="cart-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="table-responsive table-wrapper">
+          <table class="table cart-table">
+            <thead>
+              <tr class="table-head">
+                <th scope="col">imagen</th>
+                <th scope="col">libro</th>
+                <th scope="col">precio</th>
+                <th scope="col">cantidad</th>
+                <th scope="col">quitar</th>
+                <th scope="col">total</th>
+              </tr>
+            </thead>
+            {% for order_item in object.items.all %}
+            <tbody>
+              <tr>
+                <td>
+                  <a href="#"
+                    ><img alt="" src="{{ order_item.item.cover_url|default_if_none:'#' }}"
+                  /></a>
+                </td>
+                <td><a href="#">{{ order_item.item.title }}</a></td>
+                <td>
+                  <h2>{{ order_item.item.get_price }}</h2>
+                </td>
+                <td>
+                  <a
+                    href="{% url 'djbooks:remove-single-item-from-cart' order_item.item.slug %}"
+                  >
+                    <i class="fa fa-minus"></i
+                  ></a>
+                  <h2 style="display: inline">{{ order_item.quantity }}</h2>
+                  <a
+                    class="icon"
+                    href="{% url 'djbooks:add-to-cart' order_item.item.slug %}"
+                    ><i class="fa fa-plus"></i
+                  ></a>
+                </td>
+                <td>
+                  <a
+                    class="icon"
+                    href="{% url 'djbooks:remove-from-cart' order_item.item.slug %}"
+                  >
+                    <i aria-hidden="true" class="fa fa-times"></i>
+                  </a>
+                </td>
+                <td>
+                  <h2 class="td-color">
+                    ${{ order_item.get_items_final_price }}
+                  </h2>
+                </td>
+              </tr>
+            </tbody>
+            {% empty %}
+            <tr>
+              <td colspan="6">No tienes libros en tu carrito</td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        {% if object.get_total %}
+        <table class="table cart-table table-responsive-md">
+          <tfoot>
+            <tr>
+              <td>total :</td>
+              <td>
+                <h2>${{ object.get_total }}</h2>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <div class="row cart-buttons">
+      <div class="col-6">
+        <a class="btn primary-btn btn-default" href="/">Continuar comprando</a>
+      </div>
+      <div class="col-6">
+        <a class="btn primary-btn btn-default" href="/checkout">check out</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+<!-- Section ends -->
+
+{% endblock content %}

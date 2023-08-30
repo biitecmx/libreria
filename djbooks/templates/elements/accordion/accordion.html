@@ -1,0 +1,41 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- magnific popup css -->
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+{% block content %}
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">elements with accordion</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">elements</a></li>
+                    <li>accordion</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+<!--accordion1 section start-->
+{% include 'elements/accordion/components/accordion-with-image.html' %}
+<!--accordion1 section end-->
+<!--accordion2 section start-->
+{% include 'elements/accordion/components/default-accordion.html' %}
+<!--accordion2 section end-->
+<!--accordion3 section start-->
+{% include 'elements/accordion/components/accordion-with-form.html' %}
+<!--accordion section end-->
+<!--accordion1 section start-->
+{% include 'elements/accordion/components/accordion-with-video.html' %}
+<!--accordion1 section end-->
+{% endblock content %}
+{% block scriptcontent %}
+<!--magnific popup js-->
+<script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+<!-- common js-->
+<script src="{% static 'assets/js/video-popup.js' %}"></script>
+{% endblock scriptcontent %}

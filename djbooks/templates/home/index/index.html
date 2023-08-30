@@ -1,0 +1,65 @@
+{% extends 'base-home.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- Font Family-->
+<link href="https://fonts.googleapis.com/css?family=Capriola&amp;subset=latin-ext" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<!-- color css -->
+<link href="{% sass_src 'assets/scss/color-1.scss' %}" rel="stylesheet" type="text/css">
+<!--keyframe css-->
+<link href="{% static 'assets/css/keyframes.css' %}" rel="stylesheet">
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+<!-- Swiper CSS -->
+<link href="{% static 'assets/css/swiper.min.css' %}" rel="stylesheet">
+<!-- AOS CSS -->
+<link href="{% static 'assets/css/aos.css' %}" rel="stylesheet">
+<!--magnific popup css-->
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+{% include 'home/index/components/header.html' %}
+<!-- header section end-->
+<!-- services section Start-->
+{% include 'home/index/components/services.html' %}
+<!-- services section end-->
+<!-- about section Start-->
+{% include 'home/index/components/about.html' %}
+<!-- about section end-->
+<!-- download section Start-->
+{% include 'home/index/components/download.html' %}
+<!-- download section end-->
+<!-- screenshot section Start-->
+{% include 'home/index/components/screenshot.html' %}
+<!-- screenshot section end-->
+<!-- pricing section Start-->
+{% include 'home/index/components/pricing.html' %}
+<!-- pricing section end-->
+<!-- videos section Start-->
+{% include 'home/index/components/videos.html' %}
+<!-- videos section end-->
+<!-- subscribe section Start-->
+{% include 'home/index/components/subscribe.html' %}
+<!-- subscribe section end-->
+<!-- copyright section Start-->
+{% include 'home/index/components/copyright.html' %}
+<!-- copyright section end-->
+{% endblock content %}
+{% block scriptcontent %}
+<!--magnific popup js-->
+<script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!-- Swiper JS -->
+<script src="{% static 'assets/js/swiper.min.js' %}"></script>
+<!-- AOS JS -->
+<script src="{% static 'assets/js/aos.js' %}"></script>
+<!-- TILT JS -->
+<script src="{% static 'assets/js/vanilla-tilt.min.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/video-popup.js' %}"></script>
+<script src="{% static 'assets/js/script1.js' %}"></script>
+<script src="{% static 'assets/js/aos-init.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="{% static 'assets/js/layout-fix.js' %}"></script>
+{% endblock scriptcontent %}

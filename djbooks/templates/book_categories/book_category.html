@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sass_tags %}
+{% block content%}
+<!--breadcrumb section start -->
+<section class="breadcrumb-section-main inner-2 breadcrumb-section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="breadcrumb-contain">
+          <div>
+            <h2 class="breadcrumb-txt">{{ title }}</h2>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--breadcrumb section end -->
+<!-- section start -->
+<section>
+  <div class="collection-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="collection-content col">
+          <div class="page-main-content">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="top-banner-wrapper">
+                  <div class="top-banner-content small-section">
+                    <h4>colección: {{ title }}</h4>
+                  </div>
+                </div>
+                <div class="collection-product-wrapper">
+                  <div class="product-top-filter">
+                    <div class="row">
+                      <div class="col-12">
+                        {% include './filters.html' %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-wrapper-grid">
+                    <div class="row">
+                      {% include './products_list.html' %}
+                    </div>
+                  </div>
+                  {% include './pagination.html' %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- section End -->
+<!-- Quick-view modal popup start-->
+{% include './quick-view-modal.html' %}
+<!-- Quick-view modal popup end-->
+{% endblock content %} 
+{% block scriptcontent %}
+<script src="{% static 'assets/js/category.js' %}"></script>
+<!-- Get-modal-data script js-->
+<script type="text/javascript"> 
+  $(document).ready(function(){
+    $('.cart-info a').click(function(){
+        var title = $(this).attr('data-title');
+        var cover = $(this).attr('data-cover');
+        var price = $(this).attr('data-price');
+        var desc = $(this).attr('data-desc');
+        var url = $(this).attr('data-url');
+        console.log(url);
+        $('#title-text').text(title);
+        $('#img-url').attr("src", cover);
+        $('#price-text').text("$"+price);
+        $('#desc-text').text(desc);
+        $('#cart-url').attr("href", url);
+    });
+  });
+</script>
+{% endblock scriptcontent %}

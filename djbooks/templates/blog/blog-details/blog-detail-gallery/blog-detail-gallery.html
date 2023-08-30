@@ -1,0 +1,32 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+<!--magnific popup css-->
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+<!--breadcrumb section start-->
+{% include 'layout/breadcrumb.html' %}
+
+<!--breadcrumb section end-->
+
+<!-- section start -->
+<section class="agency blog-sec blog-sidebar single_blog_item">
+    <div class="container">
+        <div class="row">
+            {% include 'blog/blog-details/blog-detail-gallery/components/blog-main.html' %}
+            {% include 'blog/blog-details/blog-detail-gallery/components/blog-side.html' %}
+
+        </div>
+    </div>
+</section>
+{% endblock content %}
+{% block scriptcontent %}
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+<script src="{% static 'assets/js/blog-detail.js' %}"></script>
+
+{% endblock scriptcontent %}

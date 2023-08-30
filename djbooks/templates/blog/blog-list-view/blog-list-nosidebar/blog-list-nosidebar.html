@@ -1,0 +1,18 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start-->
+{% include 'layout/breadcrumb.html' %}
+
+<!--breadcrumb section end-->
+
+<!-- section start -->
+<section class="agency blog blog-sec blog-list">
+    <div class="container">
+        <div class="row">
+            {% include 'blog/blog-list-view/blog-list-nosidebar/components/blog-top.html' %}
+            {% include 'blog/blog-list-view/blog-list-nosidebar/components/blog-bottom.html' %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">elements with counter</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">elements</a></li>
+                    <li>counter</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+{% include 'elements/counter/components/counter-1-2.html' %}
+{% include 'elements/counter/components/counter-3-4.html' %}
+{% endblock content %}
+{% block scriptcontent %}
+<!-- counter js-->
+<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/counters.js' %}"></script>
+
+{% endblock scriptcontent %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">elements with progress-bar</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">elements</a></li>
+                    <li>progress bar</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+{% include 'elements/progress/components/progress-1.html' %}
+{% include 'elements/progress/components/progress-2.html' %}
+{% endblock content %}

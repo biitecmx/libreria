@@ -1,0 +1,48 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<!-- FIX THIS WITH CSS -->
+<br>
+<br>
+<br>
+<br>
+    <div class="quote_2 comment_form_sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 quote_form">
+                    <hr />
+                    <h3 class="page-header-comment mb-4">Solicitar un libro:</h3>
+                    <form>
+                        <div class="row g-3">
+                            <div class="form-group col-md-6">
+                                <label>Nombre del libro :</label>
+                                <input class="form-control" placeholder="Nombre" required="" type="text">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Autor :</label>
+                                <input class="form-control" id="inputEmail4" placeholder="Autor" required=""
+                                    type="email">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="exampleTextarea">Datos adicionales:</label>
+                                <textarea class="form-control msg_coment" id="exampleTextarea"
+                                    placeholder="Cualquier otro dato que nos pueda ayudar a encontrar ese libro que estás buscando" required="" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <a class="btn btn-default primary-btn m-t-20 radius-0" href="#"> Enviar
+                            <span class="con_btn_eff"></span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+{% endblock content %}

@@ -1,0 +1,107 @@
+{% load static %} {% load sass_tags %}
+<section class="ecommerce-tab">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="title title2">
+          <div class="sub-title">
+            <div>
+              <h2 class="title-text">Nuestros Productos</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 filter-section">
+        <div class="filter-container isotopeFilters">
+          <ul class="list-inline filter">
+            <li class="active"><a data-filter="*" href="#">Todos</a></li>
+            <li><a data-filter=".L" href="#">Libros</a></li>
+            <li><a data-filter=".LA" href="#">Libros Antiguos</a></li>
+            <li><a data-filter=".LF" href="#">Libros Firmados</a></li>
+            <li><a data-filter=".PE" href="#">Primeras Ediciones</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="isotopeContainer row">
+      {% for item in books %}
+      <div class="col-lg-3 col-sm-6 isotopeSelector {{ item.category }} ">
+        <div class="product-box">
+          <a class="badge badge-success" href="{{ item.get_absolute_url }}"
+            >Disponible</a
+          >
+          <div class="img-wrapper">
+            <div class="front">
+              <a href="{{ item.get_absolute_url }}"
+                ><img alt="" class="img-fluid" src="{{ item.cover_url|default_if_none:'#' }}"
+              /></a>
+            </div>
+            <div class="back">
+              <a href="{{ item.get_absolute_url }}"
+                ><img alt="" class="img-fluid" src="{{ item..back_url|default_if_none:'#' }}"
+              /></a>
+            </div>
+            <div class="cart-info cart-wrap">
+              <a href="{% url 'djbooks:add-to-cart' item.slug %}" title="Agregar al carrito"
+                ><i aria-hidden="true" class="fa fa-shopping-cart"></i>
+              </a>
+              <a href="{% url 'djbooks:add-to-wishlist' item.slug %}" title="Agregar a la wishlist"
+                ><i aria-hidden="true" class="fa fa-heart-o"></i
+              ></a>
+              <a
+                data-bs-target="#quick-view"
+                data-bs-toggle="modal"
+                href="#"
+                title="Quick View"
+                ><i aria-hidden="true" class="fa fa-search"></i
+              ></a>
+            </div>
+          </div>
+          <div class="product-detail">
+            <a href="{{ item.get_absolute_url }}">
+              <h6>{{ item.title }}</h6>
+            </a>
+            <h4>$
+              {{ item.get_original_price }}
+              mxn
+              {% if item.discount_price %}
+                <del style="color: #676767; font-size: 16px;">{{ item.price }}</del>
+              {% endif %}
+            </h4>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="down-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 p-0">
+        <div class="small-banner">
+          <img
+            alt="full banner"
+            class="bg-img"
+            src="{% static 'assets/images/banners/full-banner-bottom.jpg' %}"
+          />
+        </div>
+      </div>
+      <div class="container">
+        <div class="banner-contain">
+          <div>
+            <h3 style="text-transform: none; color: whitesmoke;">
+              Libros sobre la Ciudad de México
+            </h3>
+            <a class="btn btn-default primary-btn radius-0 mt-3" href="/categoria/ciudad-de-mexico"
+              >Ver la colección</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

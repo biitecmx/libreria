@@ -1,0 +1,61 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start -->
+<section class="breadcrumb-section-main inner-2 breadcrumb-section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-contain ">
+                    <div>
+                        <h2 class="breadcrumb-txt">Estado de tus compras</h2>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end -->
+
+<!-- section start -->
+<section class="compare-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="compare-page">
+                    <div class="table-wrapper table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="th-compare">
+                                    <td>Orden</td>
+                                    <th class="item-row">
+                                        <button class="remove-compare" type="button">Fecha</button>
+                                    </th>
+                                    <th class="item-row">
+                                        <button class="remove-compare" type="button">Estado</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-compare">
+                                <tr>
+                                    <th class="product-name">Orden 1</th>
+                                    <td class="item-row">
+                                        <p class="description-compare">27/06/23</p>
+                                    </td>
+                                    <td class="item-row">
+                                        <p class="description-compare">En proceso</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section ends -->
+{% endblock content %}

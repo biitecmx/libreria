@@ -1,0 +1,82 @@
+{% extends 'base-home.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- Font Family-->
+<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+<!-- color css -->
+<link href="{% sass_src 'assets/scss/color-3.scss' %}" rel="stylesheet" type="text/css">
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+<!--magnific popup css-->
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+<!-- header Start-->
+{% include 'home/events_layout/components/header.html' %}
+<!-- header end-->
+<!-- booking Start-->
+{% include 'home/events_layout/components/booking.html' %}
+<!-- booking end-->
+<!-- about section Start-->
+{% include 'home/events_layout/components/about.html' %}
+<!-- about section end-->
+<!--speaker section start-->
+{% include 'home/events_layout/components/speaker.html' %}
+<!--speaker section end-->
+<!--sponsor section start-->
+{% include 'home/events_layout/components/sponsor.html' %}
+<!--sponsor section end-->
+<!--schedule section start-->
+{% include 'home/events_layout/components/schedule.html' %}
+<!--schedule section end-->
+<!--testimonial section start-->
+{% include 'home/events_layout/components/testimonials.html' %}
+<!--testimonial section end-->
+<!--gallery section start-->
+{% include 'home/events_layout/components/gallery.html' %}
+<!--gallery section end-->
+<!--counter section start-->
+{% include 'home/events_layout/components/counter.html' %}
+<!--counter section end-->
+<!--subscribe section start-->
+{% include 'home/events_layout/components/subscribe.html' %}
+<!--subscribe section end-->
+<!--pricing section start-->
+{% include 'home/events_layout/components/pricing.html' %}
+<!--pricing section end-->
+<!--blog section start-->
+{% include 'home/events_layout/components/blog.html' %}
+<!--blog section end-->
+<!--contact section start-->
+{% include 'home/events_layout/components/contact.html' %}
+<!--contact section end-->
+<!--copyright section start-->
+{% include 'home/events_layout/components/copyright.html' %}
+<!--copyright section end-->
+{% endblock content %}
+{% block scriptcontent %}
+<!--magnific popup js-->
+<script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+<script src="{% static 'assets/js/isotope.min.js' %}"></script>
+<script src="{% static 'assets/js/portfolio.js' %}"></script>
+<!--typed js-->
+<script src="{% static 'assets/js/typed.min.js' %}"></script>
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!--AOS js-->
+<script src="{% static 'assets/js/aos.js' %}"></script>
+<!--AOS js-->
+<script src="{% static 'assets/js/typed.js' %}"></script>
+<!--tilt js-->
+<script src="{% static 'assets/js/vanilla-tilt.min.js' %}"></script>
+<!-- counter js-->
+<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'assets/js/count-down.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/counters.js' %}"></script>
+<script src="{% static 'assets/js/zoom-gallery.js' %}"></script>
+<script src="{% static 'assets/js/script3.js' %}"></script>
+<script src="{% static 'assets/js/layout-fix.js' %}"></script>
+{% endblock scriptcontent %}

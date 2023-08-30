@@ -1,0 +1,41 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+<!-- magnific popup -->
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+{% block content %}
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">elements with testimonial</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">elements</a></li>
+                    <li>testimonial</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+{% include 'elements/testimonial/components/testimonials-1.html' %}
+{% include 'elements/testimonial/components/testimonials-2.html' %}
+{% include 'elements/testimonial/components/testimonials-3.html' %}
+{% include 'elements/testimonial/components/testimonials-4.html' %}
+{% include 'elements/testimonial/components/testimonials-5.html' %}
+{% endblock content %}
+{% block scriptcontent %}
+<!--magnific popup js-->
+<script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/testimonial.js' %}"></script>
+<script src="{% static 'assets/js/video-popup.js' %}"></script>
+
+{% endblock scriptcontent %}

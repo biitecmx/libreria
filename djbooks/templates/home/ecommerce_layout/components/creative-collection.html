@@ -1,0 +1,31 @@
+{% load static %} {% load sass_tags %}
+<section class="parallax-banner">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 p-0">
+        <div class="full-banner">
+          <img
+            alt="full banner"
+            class="bg-img"
+            src="{% static 'assets/images/banners/full-banner.jpg' %}"
+          />
+        </div>
+      </div>
+      <div class="container">
+        <div class="banner-contain">
+          <div>
+            <h2 style="color: #dddddd">Nuestra colección</h2>
+            <p style="color: #dddddd">
+                Librería que está literalmente en un cuarto. CDMX. Envíos a todo México.
+            </p>
+            <a
+              class="btn btn-default primary-btn radius-0 mt-3"
+              href="/catalogo"
+              >Ver todo</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

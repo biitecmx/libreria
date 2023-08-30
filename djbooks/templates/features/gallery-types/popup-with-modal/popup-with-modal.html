@@ -1,0 +1,10 @@
+{% extends 'base-features.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- color css -->
+<link href="{% sass_src 'assets/scss/inner-page.scss' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+{% block content %}
+{% include 'features/gallery-types/popup-with-modal/components/breadcrumb.html' %}
+{% include 'features/gallery-types/popup-with-modal/components/content.html' %}
+{% include 'features/gallery-types/popup-with-modal/components/footer.html' %}
+{% endblock content %}

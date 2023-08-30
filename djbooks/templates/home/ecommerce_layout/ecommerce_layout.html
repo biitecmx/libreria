@@ -1,0 +1,46 @@
+{% extends 'base-home.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- Font Family-->
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<!--owl carousel css-->
+<link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet">
+<!--magnific popup css-->
+<link href="{% sass_src 'assets/scss/magnific-popup.scss' %}" rel="stylesheet">
+<!-- color css -->
+<link href="{% sass_src 'assets/scss/color-7.scss' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+{% block content %}
+<div class="layout-ecommerce">
+    <!-- carousel starts -->
+    {% include 'home/ecommerce_layout/components/carousel.html' %}
+    <!-- carousel ends -->
+    <!--  newest starts -->
+    {% include 'home/ecommerce_layout/components/newest.html' %}
+    <!--  newest ends -->
+    <!--  creative collection starts -->
+    {% include 'home/ecommerce_layout/components/creative-collection.html' %}
+    <!--  creative collection ends -->
+    <!--  special products start -->
+    {% include 'home/ecommerce_layout/components/special-products.html' %}
+    <!--  special products ends -->
+    <!--  recent story starts -->
+    <!-- {% include 'home/ecommerce_layout/components/recent-story.html' %} -->
+    <!--  recent story ends -->
+    <!--  footer starts -->
+    {% include 'home/ecommerce_layout/components/footer.html' %}
+    <!--  footer ends -->
+</div>
+{% endblock content %}
+{% block scriptcontent %}
+<!--owl js-->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!--magnific popup js-->
+<script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+<script src="{% static 'assets/js/isotope.min.js' %}"></script>
+<script src="{% static 'assets/js/portfolio.js' %}"></script>
+<!-- AOS JS -->
+<script src="{% static 'assets/js/aos.js' %}"></script>
+<!-- script js-->
+<script src="{% static 'assets/js/ecommerce.js' %}"></script>
+{% endblock scriptcontent %}

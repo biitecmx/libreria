@@ -1,0 +1,52 @@
+{% load static %} {% load sass_tags %}
+<div class="product-top-filter">
+    <div class="row">
+        <div class="col-12">
+            <div class="product-filter-content">
+                <div class="search-count">
+                    <h5>Showing Products 1-24 of 10 Result</h5>
+                </div>
+                <div class="collection-view">
+                    <ul>
+                        <li><i class="fa fa-th grid-layout-view"></i></li>
+                        <li><i class="fa fa-list-ul list-layout-view"></i></li>
+                    </ul>
+                </div>
+                <div class="collection-grid-view">
+                    <ul>
+                        <li>
+                            <img alt="" class="product-2-layout-view"
+                                src="{% static 'assets/images/inner-page/icon/2.png' %}">
+                        </li>
+                        <li>
+                            <img alt="" class="product-3-layout-view"
+                                src="{% static 'assets/images/inner-page/icon/3.png' %}">
+                        </li>
+                        <li>
+                            <img alt="" class="product-4-layout-view"
+                                src="{% static 'assets/images/inner-page/icon/4.png' %}">
+                        </li>
+                        <li>
+                            <img alt="" class="product-6-layout-view"
+                                src="{% static 'assets/images/inner-page/icon/6.png' %}">
+                        </li>
+                    </ul>
+                </div>
+                <div class="product-page-per-view">
+                    <select>
+                        <option value="High to low">24 Products Par Page</option>
+                        <option value="Low to High">50 Products Par Page</option>
+                        <option value="Low to High">100 Products Par Page</option>
+                    </select>
+                </div>
+                <div class="product-page-filter">
+                    <select>
+                        <option value="High to low">Sorting items</option>
+                        <option value="Low to High">50 Products</option>
+                        <option value="Low to High">100 Products</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

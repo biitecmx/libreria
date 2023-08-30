@@ -1,0 +1,58 @@
+{% load static %} {% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Unice" name="description" />
+    <meta content="Unice" name="keywords" />
+    <meta content="Unice" name="author" />
+
+    <title>Djbooks</title>
+
+    <!-- Fav icon -->
+    <link
+      href="{% static 'assets/images/logo/favicon.ico' %}"
+      rel="shortcut icon"
+    />
+    <!-- Font Family-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+    <!--bootstrap css-->
+    <link
+      href="{% sass_src 'assets/scss/bootstrap.scss' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- color css -->
+    <link
+      href="{% sass_src 'assets/scss/inner-page.scss' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body class="bg-purple">
+    {% include 'pages/404/components/404.html' %}
+    <!-- latest jquery -->
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <!-- popper js -->
+    {% comment %}
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    {% endcomment %}
+    <!-- Bootstrap js-->
+    {% comment %}
+    <script src="{% static 'assets/js/bootstrap.js' %}"></script>
+    {% endcomment %}
+    <!-- common js-->
+    {% comment %}
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    {% endcomment %}
+  </body>
+</html>

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start -->
+<section class="breadcrumb-section-main inner-2 breadcrumb-section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-contain ">
+                    <div>
+                        <h2 class="breadcrumb-txt" style="text-transform: none; text-align: start;">Busca en nuestra colección</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end -->
+
+<!-- section start -->
+<section class="checkout-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <div class="checkout-form">
+                        <form method="GET" style="position: relative; display: grid;">
+                            <p>
+                              <label for="id_query">Buscar por título, autor o tema:</label>
+                              <div style="position: relative; display: flex;">
+                                <input type="text" name="query" maxlength="100" required="" id="id_query" style="padding-right: 35px;" {% if form.query.value %}value="{{ form.query.value }}"{% endif %}>
+                                <button type="submit" style="position: absolute; right: 0; top: 0; height: 100%; width: 120px; padding: 5px;">Buscar</button>
+                              </div>
+                            </p>
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container no-side">
+        <div class="row">
+            {% if results %}
+            <ul>
+                {% for book in results %}
+                    <li>{{ book.title }}</li>
+                    {% include 'search-results.html' %}
+                {% endfor %}
+            </ul>
+            {% else %}
+                <h2 class="m-b-20 m-t-20">Sin resultados</h2>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

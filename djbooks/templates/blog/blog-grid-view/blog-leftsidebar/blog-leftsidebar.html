@@ -1,0 +1,33 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start-->
+{% include 'layout/breadcrumb.html' %}
+
+<!--breadcrumb section end-->
+
+<!-- section start -->
+<section class="agency blog blog-sec blog-sidebar">
+    <div class="container">
+        <div class="row">
+            {% include 'blog/blog-grid-view/blog-leftsidebar/components/blog-main.html' %}
+            {% include 'blog/blog-grid-view/blog-leftsidebar/components/blog-side.html' %}
+
+        </div>
+    </div>
+</section>
+{% endblock content %}
+{% block scriptcontent %}
+<script>
+    function collapSection() {
+        var x = document.getElementById("togglebtn");
+        if ((x.style.opacity === "0") && (x.style.visibility === "hidden")) {
+            x.style.opacity = "1";
+            x.style.visibility = "visible";
+        } else {
+            x.style.opacity = "0";
+            x.style.visibility = "hidden";
+        }
+    }
+</script>
+{% endblock scriptcontent %}

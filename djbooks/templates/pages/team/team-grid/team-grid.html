@@ -1,0 +1,36 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block css %}
+<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="breadcrumb-text text-center">pages with team grid</h2>
+                <ul class="breadcrumb justify-content-center">
+
+                    <li><a href="#">pages</a></li>
+                    <li><a href="#">team</a></li>
+                    <li>team grid</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--breadcrumb section end-->
+
+<section class="event team-sec speaker set-relative" id="speaker">
+    <div class="container">
+        <div class="row">
+            {% include 'pages/team/team-grid/components/team-top.html' %}
+            {% include 'pages/team/team-grid/components/team-bottom.html' %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

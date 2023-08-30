@@ -1,0 +1,221 @@
+{% load static %}
+{% load sass_tags %}
+<section>
+  <div class="collection-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-1 col-sm-2 col-xs-12">
+          <div class="row">
+            <div class="col-12 p-0">
+              <div class="slider-right-nav">
+                <div>
+                  <img alt="" class="img-fluid" src="{{ book.cover_url|default_if_none:'#' }}" />
+                </div>
+                {% if book.back %}
+                <div>
+                  <img alt="" class="img-fluid" src="{{ book.back_url|default_if_none:'#' }}" />
+                </div>
+                {% endif %}
+                {% for extra_img in book.extraimage_set.all %}
+                  {% if not extra_img.cover and not extra_img.back %}                
+                    <div>
+                      <img alt="" class="img-fluid" src="{{extra_img.image.url}}" />
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-10 col-xs-12 order-up">
+          <div class="product-right-slick">
+            <div>
+              <img
+                alt=""
+                class="img-fluid image_zoom_cls-0"
+                src="{{ book.cover_url|default_if_none:'#' }}"
+              />
+            </div>
+            {% if book.back %}
+            <h4>
+              <div>
+                <img
+                  alt=""
+                  class="img-fluid image_zoom_cls-1"
+                  src="{{ book.back_url|default_if_none:'#' }}"
+                />
+              </div>
+            </h4>
+            {% endif %}
+            {% for extra_img in book.extraimage_set.all %}
+              {% if not extra_img.cover and not extra_img.back %}
+              <h4>
+                <div>
+                  <img
+                    alt=""
+                    class="img-fluid image_zoom_cls-3"
+                    src="{{extra_img.image.url}}"
+                  />
+                </div>
+              </h4>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="product-right product-description-box">
+            <h2 class="m-b-20 m-t-20">{{ book.title }}</h2>
+            <div class="border-product">
+              <h6 class="product-title">Detalles del libro</h6>
+              <p>{{ book.description }}</p>
+            </div>
+            <div class="single-product-tables border-product detail-section">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Autor:</td>
+                    <td>{{ book.author }}</td>
+                  </tr>
+                  <tr>
+                    <td>Año</td>
+                    <td>{{ book.year }}</td>
+                  </tr>
+                  <tr>
+                    <td>Editorial:</td>
+                    <td>{{ book.editorial }}</td>
+                  </tr>
+                  <tr>
+                    <td>Edición:</td>
+                    <td>{{ book.edition }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="border-product">
+              <h6 class="product-title mb-2">Compartir</h6>
+              <div class="product-icon">
+                <ul class="product-social">
+                  <li>
+                    <a href="https://www.facebook.com/login/"
+                      ><i aria-hidden="true" class="fa fa-facebook"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/i/flow/login"
+                      ><i aria-hidden="true" class="fa fa-twitter"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="https://www.google.com/"
+                      ><i aria-hidden="true" class="fa fa-google"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/"
+                      ><i aria-hidden="true" class="fa fa-instagram"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="product-right product-form-box">
+            {% if book.discount_price %}
+            <h4>
+              <del>{{ book.price }}</del>
+            </h4>
+            {% endif %}
+            <h3 style="text-transform: none">${{ book.get_price }} mxn</h3>
+            <div class="border-product pb-0">
+              <h6 class="product-title">MÉTODOS DE PAGO</h6>
+              <div class="payment-card-bottom">
+                <ul class="d-flex" style="justify-content: center">
+                  <li>
+                    <a href="#"
+                      ><img
+                        alt=""
+                        src="{% static 'assets/images/inner-page/product/visa.png' %}"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><img
+                        alt=""
+                        src="{% static 'assets/images/inner-page/product/mastercard.png' %}"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="https://www.paypal.com/mx/signin"
+                      ><img
+                        alt=""
+                        src="{% static 'assets/images/inner-page/product/paypal.png' %}"
+                    /></a>
+                  </li>
+                </ul>
+                <br />
+              </div>
+            </div>
+            <div class="product-description border-product">
+              <h6 class="product-title">Stock: {{ book.stock }}</h6>
+              {% if book.stock %}
+              <div class="qty-box">
+                <div class="input-group">
+                  <span class="input-group-prepend"
+                    ><button
+                      class="btn quantity-left-minus"
+                      data-field=""
+                      data-type="minus"
+                      type="button"
+                    >
+                      <i class="fa fa-chevron-left"></i>
+                    </button>
+                  </span>
+                  <input
+                    class="form-control input-number"
+                    name="quantity"
+                    type="text"
+                    value="1"
+                  />
+                  <span class="input-group-prepend"
+                    ><button
+                      class="btn quantity-right-plus"
+                      data-field=""
+                      data-type="plus"
+                      type="button"
+                    >
+                      <i class="fa fa-chevron-right"></i></button
+                  ></span>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+            <div class="product-buttons">
+              {% if not book.stock %}
+              <p>Lo sentimos, por el momento no hay ejemplares disponibles. 
+                Pero puedes agregarlo a tu lista de deseos:
+              </p>
+              <br />
+              <a
+                href="{{ book.get_add_to_wishlist }}"
+                class="btn btn-danger btn-md my-0 p"
+              >
+                Agregarlo a la wishlist
+              </a>
+              <br>
+              {% else %}
+              <a
+                class="btn btn-default primary-btn radius-0"
+                data-bs-toggle="modal"
+                href="{{ book.get_add_to_cart_url }}"
+                >Añadir al carrito</a
+              >
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

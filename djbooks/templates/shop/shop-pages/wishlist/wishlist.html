@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sass_tags %}
+{% block content %}
+
+<!--breadcrumb section start -->
+<section class="breadcrumb-section-main inner-2 breadcrumb-section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="breadcrumb-contain">
+          <div>
+            <h2 class="breadcrumb-txt">Wishlist</h2>
+          </div>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--breadcrumb section end -->
+
+<!--section start-->
+<section class="wishlist-section section-b-space">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="table-wrapper table-responsive">
+          <table class="table cart-table">
+            <thead>
+              <tr class="table-head">
+                <th scope="col">imagen</th>
+                <th scope="col">libro</th>
+                <th scope="col">precio</th>
+                <th scope="col">disponibilidad</th>
+                <th scope="col">remover</th>
+              </tr>
+            </thead>
+            {% for book in wishlist %}
+            <tbody>
+              <tr>
+                <td>
+                  <a href="#"
+                    ><img
+                      alt=""
+                      src="{{ book.cover_url|default_if_none:'#' }}"
+                  /></a>
+                </td>
+                <td><a href="#">{{ book.title }}</a></td>
+                <td>
+                  <h2>{{ book.get_price }}</h2>
+                </td>
+                <td>
+                  <p>Stock: {{ book.stock }}</p>
+                </td>
+                <td>
+                  <a class="icon me-3" href="#"
+                    ><i aria-hidden="true" class="fa fa-times"></i> </a
+                  >
+                </td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row wishlist-buttons">
+      <div class="col-12">
+        <a class="btn btn btn-default primary-btn radius-0" href="/"
+          >Continuar comprando</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+<!--section end-->
+
+{% endblock content %}

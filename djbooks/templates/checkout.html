@@ -1,0 +1,26 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %}
+{% block content %}
+
+<!-- section start -->
+<section class="checkout-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <div class="checkout-form">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                {% include 'checkout-ship-details.html' %}
+                                {% include 'checkout-pay-details.html' %}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->
+
+{% endblock content %}

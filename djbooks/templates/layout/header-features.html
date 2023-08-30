@@ -1,0 +1,142 @@
+{% load static %} {% load sass_tags %}
+<header class="{{header}} loding-header custom-scroll">
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <nav>
+              <a class="logo-light m-r-auto" href="/"
+                ><img alt="" class="img-fluid" src="{{header_image}}"
+              /></a>
+              <div class="responsive-btn">
+                <a class="toggle-nav" href="#"
+                  ><i aria-hidden="true" class="fa fa-bars text-white"></i
+                ></a>
+              </div>
+              <div class="navbar m-l-auto" id="togglebtn">
+                <div class="responsive-btn">
+                  <h5 class="btn-back">back</h5>
+                </div>
+                <ul class="main-menu">
+                  <li>
+                    <a class="dropdown" href="#">catálogo</a>
+                    <ul style="font-size: 18px;">
+                      <a
+                        class="menu-head"
+                        data-bs-target=".demo2"
+                        data-bs-toggle="collapse"
+                        href="#"
+                        >Categorías</a
+                      >
+                      <li>
+                        <a href="/shop_product_no_sidebar"
+                          >Libros Antiguos</a
+                        >
+                      </li>
+                      <li>
+                        <a href="/shop_product_left_sidebar"
+                          >Libros Firmados</a
+                        >
+                      </li>
+                      <li>
+                        <a href="/shop_product_3_grid_right"
+                          >Primeras Ediciones</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/carrito" style="padding-right: 0px;"
+                      >carrito
+                      <i
+                        style="color: #000000; font-size: 18px; margin: 12px;"
+                        class="fa fa-shopping-cart"
+                      ></i>
+                      {% with cart_count=request.user|cart_item_count %}
+                        {% if cart_count %}
+                          <h5
+                            class="active event-time center-content"
+                            style="
+                              margin: 0 auto;
+                              height: 20%;
+                              width: 100%;
+                              padding-left: 1em;
+                              padding-right: 1em;
+                              display: inline;
+                              border-radius: 14px;
+                              background-color: #e3154f;
+                              color: #fff;
+                            "
+                          >
+                            {{ cart_count }}
+                          </h5>
+                        {% endif %}
+                      {% endwith %}
+                    </a>
+                  </li>
+                  {% if not request.user.is_authenticated %}
+                  <li>
+                    <a href="/accounts/login/" style="padding-right: 0px"
+                      >ingresar
+                      <i
+                        style="color: #000000; font-size: 18px; margin: 12px"
+                        class="fa fa-user-circle"
+                      ></i
+                    ></a>
+                  </li>
+                  {% else %}
+                  <li>
+                    <a
+                      class="dropdown"
+                      href="#"
+                      style="padding-right: 0px"
+                      >Mi cuenta<i
+                        style="color: #000000; font-size: 18px; margin: 12px"
+                        class="fa fa-user-circle"
+                      ></i
+                    ></a>
+                    <ul style="font-size: 18px; margin-top: -20px">
+                      <li>
+                        <a class="menu-head" href="{% url 'account_logout' %}"
+                          >Mis datos</a
+                        >
+                      </li>
+                      <li>
+                        <form method="post" action="{% url 'account_logout' %}">
+                          {% csrf_token %} {% if redirect_field_value %}
+                          <input
+                            type="hidden"
+                            name="{{ redirect_field_name }}"
+                            value="{{ redirect_field_value }}"
+                          />
+                          {% endif %}
+                          <button
+                            style="
+                              margin: 0;
+                              border: 0;
+                              width: 100%;
+                              min-width: 240px;
+                              padding: 10px 18px;
+                              white-space: nowrap;
+                              font-weight: 400;
+                              font-size: 13px;
+                            "
+                            type="submit"
+                          >
+                            Salir
+                            <i
+                              style="color: #000000; font-size: 18px; margin: 12px"
+                              class="fa fa-arrow-right"
+                            ></i>
+                          </button>
+                        </form>
+                      </li>
+                    </ul>
+                  </li>
+                  {% endif %}
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+</header>

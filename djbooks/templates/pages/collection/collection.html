@@ -1,0 +1,56 @@
+{% extends 'base.html' %}{% load static %} {% load sass_tags %} {% block content%}
+
+<!--breadcrumb section start-->
+<section class="agency breadcrumb-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="breadcrumb-text text-center">Nuestro acervo</h2>  
+        <ul class="breadcrumb justify-content-center">
+          <li><a href="#">Libros</a></li>
+          <li>colección</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!--breadcrumb section end-->
+
+<!-- section start -->
+<section class="collection">
+  <div class="container">
+    {% comment %}
+    {% include 'pages/collection/components/collection-top.html' %}
+    {% endcomment %}
+        <!-- remove this -->
+        <div class="row partition-collection">
+            {% for i in '0123456789'|make_list %}
+                {% if forloop.counter != 2 %}
+                <div class="col-lg-3 col-sm-6">
+                <div class="collection-block">
+                    <img
+                    alt=""
+                    class="img-fluid"
+                    src="{% static 'assets/images/paralax/' %}{{ forloop.counter }}.jpg"
+                    />
+                    <div class="collection-content">
+                    <h4>(0 libros)</h4>
+                    <h3>Categoría de Libro</h3>
+                    <p>Descripción.</p>
+                    <a
+                        class="btn btn-default primary-btn radius-0 m-t-10"
+                        href="#"
+                        >Ver</a
+                    >
+                    </div>
+                </div>
+                </div>
+                {% endif %} 
+            {% endfor %}
+        </div>
+        <!-- remove this -->
+  </div>
+</section>
+<!-- Section ends -->
+
+{% endblock content %}

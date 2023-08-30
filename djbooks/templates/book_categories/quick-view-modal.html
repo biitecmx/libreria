@@ -1,0 +1,49 @@
+{% load static %}
+{% load sass_tags %}
+<div
+  aria-hidden="true"
+  class="modal fade bd-example-modal-lg theme-modal"
+  id="quick-view"
+  role="dialog"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content quick-view-modal">
+      <div class="modal-body">
+        <button
+          aria-label="Close"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          type="button"
+        ></button>
+        <div class="row">
+          <div class="col-lg-6 col-xs-12">
+            <div class="quick-view-img">
+              <img id="img-url" class="img-fluid" src="" />
+            </div>
+          </div>
+          <div class="col-lg-6 rtl-text">
+            <div class="product-right">
+              <h2 id="title-text"></h2>
+              <h3 id="price-text"></h3>
+              <div class="border-product">
+                <h6 class="product-title">Detalles del libro</h6>
+                <p id="desc-text"></p>
+              </div>
+              <div class="product-description border-product">
+              </div>
+              <div class="product-buttons">
+                <a
+                  id="cart-url"
+                  class="btn btn-default primary-btn radius-0"
+                  href="#"
+                  >Añadir al carrito</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

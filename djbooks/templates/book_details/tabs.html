@@ -1,0 +1,169 @@
+{% load static %} {% load sass_tags %}
+<section class="tab-product p-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-lg-12">
+        <div class="tab-box">
+          <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+            <li class="nav-item">
+              <a
+                aria-selected="true"
+                class="nav-link active"
+                data-bs-toggle="tab"
+                href="#top-home"
+                id="top-home-tab"
+                role="tab"
+                >Estado del libro</a
+              >
+              <div class="material-border"></div>
+            </li>
+            <li class="nav-item">
+              <a
+                aria-selected="false"
+                class="nav-link"
+                data-bs-toggle="tab"
+                href="#top-profile"
+                id="profile-top-tab"
+                role="tab"
+                >Detalles</a
+              >
+              <div class="material-border"></div>
+            </li>
+            <li class="nav-item">
+              <a
+                aria-selected="false"
+                class="nav-link"
+                data-bs-toggle="tab"
+                href="#top-review"
+                id="review-top-tab"
+                role="tab"
+                >Reseñas</a
+              >
+              <div class="material-border"></div>
+            </li>
+          </ul>
+          <div class="tab-content nav-material" id="top-tabContent">
+            <div
+              aria-labelledby="top-home-tab"
+              class="tab-pane fade show active"
+              id="top-home"
+              role="tabpanel"
+            >
+              <p>{{ object.condition }}</p>
+              <div class="single-product-tables">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Autor:</td>
+                      <td>{{ object.author }}</td>
+                    </tr>
+                    <tr>
+                      <td>Año:</td>
+                      <td>{{ object.year }}</td>
+                    </tr>
+                    <tr>
+                      <td>Editorial:</td>
+                      <td>{{ object.editorial }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Edición:</td>
+                      <td>{{ object.edition }}</td>
+                    </tr>
+                    <tr>
+                      <td>Etiquetas:</td>
+                      <td>
+                        {% for tag in object.tags.all %} {{ tag }} {% endfor %}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div
+              aria-labelledby="profile-top-tab"
+              class="tab-pane fade"
+              id="top-profile"
+              role="tabpanel"
+            >
+              <p>{{ object.description }}.</p>
+            </div>
+            <!-- <div
+              aria-labelledby="review-top-tab"
+              class="tab-pane fade"
+              id="top-review"
+              role="tabpanel"
+            >
+              <form class="theme-form">
+                <div class="row g-sm-3 g-0">
+                  <div class="col-md-12">
+                    <div class="media">
+                      <label>Rating</label>
+                      <div class="media-body ms-3">
+                        <div class="rating three-star">
+                          <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="name">Name</label>
+                    <input
+                      class="form-control"
+                      id="name"
+                      placeholder="Enter Your name"
+                      required
+                      type="text"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="email">Email</label>
+                    <input
+                      class="form-control"
+                      id="email"
+                      placeholder="Email"
+                      required
+                      type="text"
+                    />
+                  </div>
+                  <div class="col-md-12">
+                    <label for="review">Review Title</label>
+                    <input
+                      class="form-control"
+                      id="review"
+                      placeholder="Enter your Review Subjects"
+                      required
+                      type="text"
+                    />
+                  </div>
+                  <div class="col-md-12">
+                    <label for="review">Review Title</label>
+                    <textarea
+                      class="form-control"
+                      id="exampleFormControlTextarea1"
+                      placeholder="Wrire Your Testimonial Here"
+                      rows="6"
+                    ></textarea>
+                  </div>
+                  <div class="col-md-12">
+                    <button
+                      class="btn primary-btn btn-default radius-0"
+                      type="submit"
+                    >
+                      Submit YOur Review
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
